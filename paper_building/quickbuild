@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# n.b. version with variables isn't tested yet, this is generalized from earlier version that I would just copy-paste, and bash variables are bizarre and confusing
+
+PROJECTNAME="your_name" # just a name for the resulting files and also for the incoming CSL JSON file
+FORMAT="research_or_bluebook" # "reset" preset uses chicago style cites, "bluebook" uses, well, bluebook
+
+python3 cleanup.py "${PROJECTNAME}.json" "${PROJECTNAME}-cleaned.json"
+pandoc -o "pdf-quick-build-${PROJECTNAME}.pdf" --defaults="${FORMAT}" draft.md
+pandoc -o "docx-quick-build-${PROJECTNAME}.docx" --defaults="${FORMAT}" draft.md
+git commit -m "draft"
+git push

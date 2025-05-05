@@ -1,0 +1,19 @@
+standalone: true
+pdf-engine: xelatex
+strip-comments: true
+metadata:
+  author: Paul Gowder
+citeproc: true
+csl: bluebook-law-review
+filters:
+  - current-date.lua
+table-of-contents: true
+toc-depth: 3
+number-sections: false
+variables:
+  geometry: margin=1.2in
+  header-includes:
+    - \usepackage{setspace}
+    - \onehalfspacing
+
+
